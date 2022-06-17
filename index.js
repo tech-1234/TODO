@@ -8,16 +8,18 @@ const db = require('./config/mongoose');
 
 const todolist = require('./model/todolist');
 
+//We wil be storing the asset files such as css and js in the assets folder
 app.use(express.urlencoded());
 app.use(express.static('./assets'));
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
+
 // Setting up the view engine - ejs
 
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-//We wil be storing the asset files such as css and js in the assets folder
+
 
 
 
