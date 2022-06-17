@@ -1,0 +1,223 @@
+body{
+    margin:0;
+}
+
+/* Google font - Rock Salt is used */
+.new-font{
+    font-family: "Rock Salt", sans-serif;
+    font-size:1.2rem;
+    color:white;
+    
+}
+
+/* Following are the classes to enable flex functionalities */
+.text-align-center{
+    text-align: center;
+}
+.d-flex{
+    display: flex;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center{
+    align-items: center;
+}
+.dir-col{
+    flex-direction: column;
+}
+
+/* Assigning values to the css variables, for the functionalities that are used repeatedly */
+:root{
+    --header-background : linear-gradient(to right,  rgba(42,72,107,1) 0%,rgba(80,122,167,1) 100%);
+    --shadow:1px 5px 10px -5px rgba(0,0,0,0.5);
+    --input-label-color: #607D8B;
+}
+
+/* Main Container */
+#container{
+  width:50%;
+  margin: auto;
+  position: relative;
+
+}
+
+/* Rotate class for animation */
+.rotate-135deg{
+ transform: rotate(135deg);
+}
+
+/* Header Section */
+header{
+    height: 10vh;
+    background:var(--header-background);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow);
+}
+
+.toggleButton{
+    cursor: pointer;
+    background:var(--header-background);
+    width:15%;
+    font-size:1.5rem;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.toggleButton i{
+    transition: all 0.3s ease-in-out;
+}
+.headerText{
+    color:white;
+    letter-spacing: 5px;
+    font-size:2rem;
+    margin:1rem;
+
+}
+
+/* input section  */
+
+.title-description{
+    text-align: left;
+    
+
+}
+.input-description{
+    width:100%;
+}
+input:focus, textarea:focus, select:focus{
+    outline: none;
+}
+input,select{
+    font-size:1.2rem;
+    outline:none;
+    border: none;
+    box-shadow: var(--shadow);
+    box-sizing: border-box;
+    padding:10px;
+    margin-bottom: 1rem;
+}
+.inputLabel{
+    font-size:1.3rem;
+    color:var(--input-label-color)
+}
+.add-btn{
+    font-size:1.3rem;
+    color:white;
+    background-color: var(--input-label-color);
+    border:none;
+    padding:1rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+#inputSection{
+    width: 100%;
+     display: flex;
+     justify-content: center;
+     box-sizing: border-box;
+     padding:2rem;
+     top:100px;   
+    transition:all 0.5s ease-in-out;
+
+    border-bottom: 2px solid blue;
+
+
+}
+.animate-exit{
+    height:0;
+    transform: scale(0);
+}
+.animate-enter{
+    height:40vh;
+    transform: scale(1);
+}
+
+
+/* Pending tasks list */
+
+.list-header{
+    height:6vh;
+    background: var(--header-background);
+    display: flex;
+    align-items: center;
+    box-shadow: var(--shadow);
+    border-left:5px solid pink;
+    margin:1rem;
+}
+
+.list-heading{
+    font-size:1.5rem;
+    color:white;
+    letter-spacing: 0.2rem;
+    margin:0.5rem 1rem;
+
+}
+
+/* list item */
+
+.list-item{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-left: 5px solid #EE4455;
+    box-shadow: var(--shadow);
+    min-height:6vh;
+    overflow: hidden;
+    margin:0.5rem;
+    padding:0.5rem;
+    background-color: #cee5ff;
+    
+}
+
+.category{
+    color:#EE4455;
+    display: flex;
+    font-size:1.3rem;
+    text-transform: uppercase;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+.item-info{
+    width:35%;
+}
+.title{
+    color:black;
+    text-transform: uppercase;
+    font-size: larger;
+}
+.description-text{
+    color:gray;
+    font-size:large;
+}
+
+.date{
+    width:28%;
+    font-size:1.3rem;
+    font-weight: bold;
+    color:black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.checkbox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:1.5rem;
+    cursor: pointer;
+    color:green;
+}
+
+.checkbox input[type="checkbox"]{
+    height:1.6rem;
+    width: 1.6rem;
+}
+

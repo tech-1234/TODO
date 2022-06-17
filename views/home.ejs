@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="font-src 'self' data:; img-src 'self' data:; default-src 'self' http://121.0.0.1:8000/"
+    />
+    <title>TODO</title>
+    <!-- Css link to add Google Fonts -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Rock Salt"
+    />
+
+    <!-- Adding favicon -->
+
+    <!-- Fontawesome script tag for including icons -->
+    <script
+      src="https://kit.fontawesome.com/e178782a14.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="/css/home.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/photos/cropped-T-favicon-512x512.png"
+    />
+  </head>
+  <body>
+    <!-- The container will have all the sections of the page -->
+    <div id="container">
+      <header>
+        <!-- Header contains the main heading and the toggle button  -->
+        <div class="headerText">My TODO List</div>
+        <div class="new-font">
+          Click here to Toggle
+          <i class="fas fa-long-arrow-alt-right"></i>
+        </div>
+        <!-- The toggle button is used to hide/show the input section -->
+        <div id="toggle" class="toggleButton">
+          <i class="fas fa-plus <%=rotateAngle%>"></i>
+        </div>
+      </header>
+      <!-- The input section is a form that will take information from the user about a particular task -->
+      <div id="inputSection" class="<%=animateType%>">
+        <form action="/add-todolist" method="post">
+          <table>
+            <tr>
+              <th class="inputLabel">Category</th>
+              <th class="inputLabel">Title</th>
+              <th class="inputLabel">Date</th>
+            </tr>
+            <tr>
+              <td>
+                <select name="category" id="category" required>
+                  <option value="SCHOOL">SCHOOL</option>
+                  <option value="WORK">WORK</option>
+                  <option value="SPORTS">SPORTS</option>
+                  <option value="MUSIC">MUSIC</option>
+                  <option value="SHOPPING">SHOPPING</option>
+                </select>
+              </td>
+              <td>
+                <input type="text" name="title" required />
+              </td>
+              <td>
+                <input type="date" name="date" required />
+              </td>
+            </tr>
+            <tr>
+              <th class="inputLabel title-description">Description</th>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <input
+                  type="text"
+                  name="description"
+                  class="input-description"
+                  required
+                />
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="3" class="text-align-center">
+                <button type="submit" class="add-btn">ADD</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+      <!-- The delete button is used to delete the checked tasks -->
+      <div id="delete-tasks" class="list-header">
+        <span class="list-heading"> Select tasks to delete </span>
+      </div>
+      <div class="d-flex justify-center">
+        <button type="submit" class="add-btn" form="checkbox-form">
+          Delete tasks &ensp;
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </div>
+      <!-- The pending tasks are shown in the form of an unordered list  -->
+      <div id="lists">
+        <div class="list-header">
+          <span class="list-heading"> Pending Tasks</span>
+        </div>
+        <ul>
+          <form action="/checkbox-input" method="post" id="checkbox-form">
+            <%for(let i of todolist){%>
+            <li class="list-item">
+              <div class="checkbox">
+                <input type="checkbox" name="checkbox" value="<%=i._id%>" />
+              </div>
+              <div class="category">
+                <span><%=i.category%></span>
+              </div>
+              <div class="item-info">
+                <span class="title"><%=i.title%></span> <br />
+                <span class="description-text"><%=i.description%></span>
+              </div>
+              <div class="date">
+                <i class="fas fa-calendar-day"></i>
+                <%= i.date.toString().slice(0,15) %>
+              </div>
+            </li>
+            <%}%>
+          </form>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <!-- link for the javascript file -->
+  <script src="/js/home.js"></script>
+</html>
